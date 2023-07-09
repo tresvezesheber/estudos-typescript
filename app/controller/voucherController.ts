@@ -1,20 +1,23 @@
 import {Voucher} from "../model/voucher.js";
 import {Vouchers} from '../model/vouchers.js';
+import {VouchersView} from "../view/VouchersView.js";
 
 export class VoucherController {
     private inputCodigo: HTMLInputElement;
     private inputVelocidade: HTMLInputElement;
     private vouchers = new Vouchers();
+    private vouchersView = new VouchersView('#vouchersView');
 
     constructor() {
         this.inputCodigo = document.querySelector('#codigo');
         this.inputVelocidade = document.querySelector('#velocidade');
+        this.vouchersView.update(this.vouchers);
     }
 
     adiciona(): void {
         const voucher = this.criaVoucher();
         this.vouchers.adiciona(voucher);
-        console.log(this.vouchers.lista());
+        this.vouchersView.update(this.vouchers);
         this.limpaFormulario();
     }
 

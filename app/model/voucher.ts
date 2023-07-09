@@ -1,9 +1,9 @@
 export class Voucher {
     constructor(
         private _dataDeCriacao: Date,
-        private readonly codigo: string,
-        private readonly velocidade: number,
-        private readonly foiUsado: boolean
+        public readonly codigo: string,
+        public readonly velocidade: number,
+        public readonly foiUsado: boolean
     ) {}
 
     get dataDeCriacao(): Date {
